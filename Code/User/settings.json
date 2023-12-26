@@ -11,18 +11,18 @@
     "cmake.configureOnOpen": true,
     "cmake.showOptionsMovedNotification": false,
     "background.fullscreen": {
-        "image":[
+        "images": [
             "file:///home/davi/Pictures/WallPaper/1.png",
-        ] ,
+        ],
+        "background.enabled": true,
         "background.loop": false,
         "background.useFront": false,
         "background.useDefault": false,
         "opacity": 0.85,
         "size": "cover",
         "position": "center",
-        "interval":0
+        "interval": 0
     },
-
     "workbench.colorCustomizations": {
         "editorBracketHighlight.foreground1": "#f80bd1",
         "editorBracketHighlight.foreground2": "#fffb00",
