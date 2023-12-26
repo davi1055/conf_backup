@@ -1,0 +1,47 @@
+#!/bin/bash
+
+#  Check whether perf.data exists
+if [ -e ./perf.data ]; then
+    :	
+else
+    echo -e "\033[1;31mfile named 'perf.data' does not exit,please generate perf.data first!! (use 'perf record -g xxx' to generate )\033[0m"
+    exit 1
+fi
+
+#  Check whether FlameGraph directory exists
+if [ -d ~/FlameGraph ]; then
+    echo -e "\033[1;32mThe FlameGraph directory already exists. Generating FlameGhaph...\033[0m"
+else
+    echo -e "\033[1;32mThe FlameGrapg directory does not exist and is being cloned...\033[0m"
+    git clone --depth=1 https://github.com/brendangregg/FlameGraph.git ~/FlameGraph
+    echo -e "\033[1;32mThe FlameGraph repository has been cloned into the ~/FlameGraph directory.\033[0m"
+fi
+
+#  Check whether the perf.data file exists
+
+folder_prefix="flame_graph"
+folder_name=""
+i=0
+while true; do
+	current_folder="${folder_prefix}_${i}"
+	if [ ! -d "$current_folder" ]; then
+		folder_name="$current_folder"
+		break
+	fi
+	((i++))
+done
+
+mkdir -p "$folder_name"
+
+cp ~/FlameGraph/stackcollapse-perf.pl "$folder_name/"
+cp ~/FlameGraph/flamegraph.pl "$folder_name/"
+cp ./perf.data "$folder_name/"
+
+cd "$folder_name"
+
+perf script | ./stackcollapse-perf.pl >out.folded
+./flamegraph.pl out.folded >flamegraph.svg
+
+# echo "FlameGraph has been generated in $folder_name !"
+#bold green
+echo -e "\033[1;32mFlameGraph has been generated in $folder_name !\033[0m"
