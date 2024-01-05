@@ -31,4 +31,11 @@
         "editorBracketHighlight.foreground5": "#0011ff",
         "editorBracketHighlight.foreground6": "#ffffff",
     },
+    "explorer.confirmDragAndDrop": false,
+    "cmake.generator": "",
+    "editor.formatOnSave": true,
+    "clang-format.fallbackStyle": "Google",
+    "[cpp]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
 }
