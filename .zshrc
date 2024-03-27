@@ -9,18 +9,18 @@ plugins=(git
     zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh  #  path to zsh
-source /usr/share/fzf/completion.zsh  #  fzf plugins
-source /usr/share/fzf/key-bindings.zsh  #  fzf plugins
+# source /usr/share/fzf/completion.zsh  #  fzf plugins
+source ~/.oh-my-zsh/plugins/fzf-tab/fzf-tab.plugin.zsh #  fzf-tab
+source ~/.oh-my-zsh/plugins/fzf-tab/fzf-tab.zsh
 
-export FZF_DEFAULT_OPTS="--color=bg+:48,bg:-1,hl:3,fg:7,header:3,info:6,pointer:5,prompt:3"
+export FZF_DEFAULT_OPTS="--color=fg:-1,bg:-1,hl:3,fg+:0,bg+:48,hl+:1,info:6,prompt:3,pointer:5"
 export FZF_PREVIEW_OPTS="--border --color=bg+:48,bg:-1,hl:3,fg:7"
 
 #  fzf
-[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
+[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh 
 
 #  neofetch
 neofetch
-
 #  proxy
 #export http_proxy=127.0.0.1:7890
 #export https_proxy=127.0.0.1:7890
@@ -28,8 +28,12 @@ neofetch
 
 #  alias
 alias vim="nvim"
-alias csgo="yay"
 alias fzf="fzf --preview 'bat --color=always {}'"
+alias top="btop"
+
+# thefuck
+eval $(thefuck --alias)
+
 
 #  conda
 # >>> conda initialize >>>
