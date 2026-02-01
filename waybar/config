@@ -5,7 +5,7 @@
     "spacing": 6,
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": [],
-    "modules-right": ["tray", "network", "pulseaudio", "memory", "cpu", "clock"],
+    "modules-right": ["tray", "network", "pulseaudio", "memory", "cpu","battery", "clock"],
     "hyprland/workspaces": {
         "format": "{name}",
         "on-click": "activate",
@@ -32,7 +32,7 @@
     },
     "memory": {
         "interval": 1,
-        "format": "\uf538 {used}G",
+        "format": "\uf538 {percentage}%",
         "tooltip": true,
         "tooltip-format": "RAM: {used}G / {total}G\nSwap: {swapUsed}G / {swapTotal}G"
     },
@@ -56,5 +56,17 @@
         },
         "on-click-right": "pavucontrol",
         "ignored-sinks": ["AudioRelay Virtual Sink", "Recorder Sink"]
-    }
+    },
+	"battery": {
+    "interval": 30,
+    "format": "{icon} {capacity}%",
+    "format-charging": "\uf1e6 {capacity}%",
+    "format-plugged": "\uf1e6 {capacity}%",
+    "format-alt": "{time} remaining",
+    "format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"],
+    "bat": "BAT0"
+	}
+
+
 }
+

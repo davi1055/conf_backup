@@ -1,6 +1,6 @@
 * {
   /* `otf-font-awesome` is required to be installed for icons */
-  font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free";
+  font-family: "JetBrainsMono Nerd Font", "Font Awesome 7 Free Solid";
   font-weight: 500;
   font-size: 15px;
 
@@ -64,6 +64,7 @@ window#waybar.hidden {
 #pulseaudio,
 #tray,
 #mode,
+#battery,
 #window {
   margin-top: 6px;
   padding: 0 12px;
@@ -101,6 +102,11 @@ window#waybar.hidden {
 }
 
 #network {
+  background-color: rgba(16, 20, 24, 0.6);
+  color: #ffffff;
+}
+
+#battery {
   background-color: rgba(16, 20, 24, 0.6);
   color: #ffffff;
 }
